@@ -28,7 +28,7 @@ We don't have a solution to auto remove features after application creation (yet
 
 When you are creating a new project, you'll be first asked to select features that you need:
 
-![Feature Selection Wizard](img/2012-12-16/feature-selection-wizard.png)
+![Feature Selection Wizard](img/2016-12-16/feature-selection-wizard.png)
 
 Some features has dependencies to other features, so when you uncheck Northwind for example, Basic Samples will also become unchecked.
 
