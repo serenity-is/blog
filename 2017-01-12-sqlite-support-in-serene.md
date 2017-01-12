@@ -17,7 +17,7 @@ Sqlite looked like a natural choice, so i decided to give it a go.
 
 > I tried this on Windows/.NET45 so it won't work as is in .NET Core yet.
 
-# Registering Sqlite Provider
+## Registering Sqlite Provider
 
 MySQL has a .NET provider named System.Data.Sqlite. You need to first install it in 
 MyProject.Web:
@@ -43,7 +43,7 @@ If you didn't install this provider in GAC/machine.config before, or don't want 
   // ...
 ```
 
-# Setting Connection Strings
+## Setting Connection Strings
 
 Next step is to replace connection strings for databases you want to use with MySql:
 
@@ -64,7 +64,7 @@ If you are using Serene 2.8.1+, this is all you will have to do (not released as
 
 You won't have to do following changes if you use a newer template.
 
-# Changes in *SiteInitialization.Migrations.cs*
+## Changes in *SiteInitialization.Migrations.cs*
 
 As we didn't have any official support in Serene, i had to do some changes in 
 *SiteInitialization.Migrations.cs* file.
@@ -130,7 +130,7 @@ Here we add a specialized one for Sqlite.
 assembly in Serene yet, so that's why i had to use reflection to call *CreateFile* 
 static method on it.
 
-# Adding Migrations for Northwind
+## Adding Migrations for Northwind
 
 Serene *Default* database completely uses migrations, so it should work 
 out of the box without any changes.
@@ -138,8 +138,7 @@ out of the box without any changes.
 But *Northwind* is another story. Serene has specialized scripts for every database
 type, so we had to add one for Sqlite too.
 
-I found for a script for *Northwind/Sqlite* by *Valon Hoti/Len Boyette*, and
-after modifying it a bit it worked.
+I found a script for *Northwind/Sqlite* by *Valon Hoti/Len Boyette*, and had to modify it a bit:
 
 https://github.com/volkanceylan/Serene/blob/master/Serene/Serene.Web/Migrations/NorthwindDB/NorthwindDBScript_Sqlite.sql
 
