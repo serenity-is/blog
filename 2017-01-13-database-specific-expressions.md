@@ -1,6 +1,6 @@
 ---
 title: Database Specific Expressions
-description: Serene runs on a variety of databases, including MS Sql, Postgres, MySql, Oracle and now Sqlite as we introduced in yesterdays article. We talk about the challange we had to handle as Sqlite didn't support CONCAT, and how we resolved it by a new Serenity feature.
+description: Serene runs on a variety of databases, including MS Sql, Firebird, Postgres, MySql, Oracle and now Sqlite as we introduced in yesterdays article. We talk about the challange we had to handle as Sqlite didn't support CONCAT, and how we resolved it by a new Serenity feature.
 author: Volkan Ceylan
 ---
 
@@ -194,7 +194,7 @@ public String FullName
     set { Fields.FullName[this] = value; }
 }
 ```
-SqlServer2000, SqlServer2005 and SqlServer2012 all start with "SqlServer200" right?
+SqlServer2000, SqlServer2005 and SqlServer2008 all start with "SqlServer200" right?
 
 > I don't recommend relying on *starts with* functionality, it might be error prone,
 and we may decide to change it later.
