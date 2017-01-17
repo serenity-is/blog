@@ -1,6 +1,6 @@
 ---
 title: Welcome to ASP.NET Core / .NET Core
-description: Finally! We now have a working copy of Serene .NET Core / ASP.Net Core which you can run on OSX / Linux / Windows. Even though it 's currently an alpha release, and except many changes in following weeks, we are hoping to have a stable release on 3.0. Here is how you can try it out.
+description: Finally! We now have a working copy of Serene .NET Core / ASP.Net Core which you can run on OSX / Linux / Windows. Even though it is a beta release, we are hoping to have a stable release before 3.0. Here is how you can try it out.
 author: Volkan Ceylan
 ---
 
