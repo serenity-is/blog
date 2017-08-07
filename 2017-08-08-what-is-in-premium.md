@@ -118,7 +118,7 @@ Card view allows you to show records as fully customizable cards, and easily swi
 
 ![Mail Queue](img/2017-08-08/card-view.png)
 
-This feature is implemented as a Mixin you that you can simply apply to any of your grids (EntityGrid / DataGrid).
+This feature is implemented as a Mixin that you can simply apply to any of your grids (EntityGrid / DataGrid).
 
 We used *Vue.js* ([https://vuejs.org/](https://vuejs.org/)) for card templates, so you can simply customize it to your needs and use any property available in your rows.
 
