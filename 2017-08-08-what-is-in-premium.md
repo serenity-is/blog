@@ -8,7 +8,7 @@ author: Volkan Ceylan
 
 Our premium support packages are available at [http://serenity.is](http://serenity.is). Currently, three support levels are offered: _Personal_, _Professional_ and _Enterprise_.
 
-All support levels provides access to our *StartSharp* template, which includes additional samples, features and modules (in addition to everything our free template *Serene*), that we'll talk about shortly.
+All support levels provide access to our *StartSharp* template, which includes additional samples, features and modules (in addition to everything our free template *Serene*), that we'll talk about shortly.
 
 Let's first explain what you get with these support packages.
 
@@ -43,19 +43,19 @@ It's also possible to buy additional hours, and our premium members get a discou
 
 *StartSharp* is premium version of our free *Serene* template. 
 
-It includes everything Serene has, in addition to extra samples, features and modules.
+It includes everything that Serene has, in addition to extra samples, features and modules.
 
 We're regularly adding extra content into *StartSharp*. 
 
-> Some of these like *card view* are sponsored by our customers. We'd like to thank them for letting us share them with community.
+> Some of these like *card view* are sponsored by our customers. We'd like to thank them for letting us to share with community.
 
-Here is a list of what is currently available in StartSharp...
+Here is the list of what is currently available in StartSharp...
 
 ## Background Task System
 
 You might want to run some process periodically, e.g. daily, or every three hours. 
 
-Even though you could use Scheduled Tasks in Windows, this would require manually configuring such tasks in every server you install your application. 
+Even though you could use Scheduled Tasks in Windows, this would require manual configuring such tasks in every server you install your application. 
 
 Windows service is another option but comes with its own set of problems.
 
@@ -100,7 +100,7 @@ We implemented our next feature, Background Mail Queue on this task system.
 
 ## Background Mail Queue
 
-Sometimes you might want to sent lots of e-mails, like bulletins. Sending thousands of e-mails might take considerable amount time, and the user who tries to publish these e-mails might get timeouts or have to wait a long long time.
+Sometimes you might want to sent lots of e-mails, like bulletins. Sending thousands of e-mails might take considerable amount time, and the user, who tries to publish these e-mails, might get timeouts or have to wait a long long time.
 
 Even though you need to send one or two e-mails, if your SMTP server is having problems, your users might get application errors.
 
@@ -165,14 +165,14 @@ This is also implemeted as a grid mixin so it can be easily applied to any grid.
 
 This is a table explorer, similar to view data in SQL Management Studio.
 
-It's main purpose is to demonstrate how you could work with dynamic data sources and columns in Serenity.
+Its main purpose is to demonstrate how you managed to work with dynamic data sources and columns in Serenity.
 
 ![Data Explorer](img/2017-08-08/data-explorer.png)
 
 
 ## Data Tables Integration
 
-Serenity use *SlickGrid* under the hood for your listing pages. It is possible to use another grid / table component for some pages if required.
+Serenity uses *SlickGrid* under the hood for your listing pages. It is possible to use another grid / table component for some pages if required.
 
 In this sample we demonstrate how you could integrate popular DataTables plugin, in both client side / server side data source mode, while still making use of Serenity services.
 
@@ -216,6 +216,6 @@ This sample demonstrates how we could execute a task at server side, possibly in
 
 ## Conclusion
 
-Premium packages are mainly about support. Buy purchasing one of these support packages, we'll help you save your most precious resource, *time*, you'll get access to extra samples and as a bonus help Serenity moving forward.
+Premium packages are mainly about support. By purchasing one of these support packages, we'll help you to save your most precious resource, *time*, you'll get access to extra samples and as a bonus help Serenity moving forward.
 
 So we hope that this will be a win-win. Thanks.
