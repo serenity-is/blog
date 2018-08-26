@@ -1,6 +1,6 @@
 ---
 title: What is in our Premium Package, StartSharp?
-description: We provide open source Serene template with basic community support in Serenity GitHub repository. For our users who require more features and extended support, we offer StartSharp packages with a premium template and direct support from Serenity authors. This document lists what you get by purchasing our premium packages.
+description: We provide free Serene template with basic community support in Serenity GitHub repository. For our users who require more features and extended support, we offer StartSharp packages with a premium template and direct support from Serenity authors. This document details what you get by purchasing our premium packages.
 author: Volkan Ceylan
 ---
 
