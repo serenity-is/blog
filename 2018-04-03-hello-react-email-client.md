@@ -226,7 +226,7 @@ Before, we were using VueJS for this, but it had no intellisense / compile time 
 
 ## EmailClient Sample
 
-StartSharp now comes with a full-featured IMAP based e-mail client written with React. It can connect to any e-mail account supporting IMAP protocol, like Gmail, Homail, Yandex, Yahoo in addition to your local mail server.
+StartSharp now comes with a full-featured IMAP based e-mail client written with React. It can connect to any e-mail account supporting IMAP protocol, like Gmail, Hotmail, Yandex, Yahoo in addition to your local mail server.
 
 We use MailKit for connecting to servers.
 
