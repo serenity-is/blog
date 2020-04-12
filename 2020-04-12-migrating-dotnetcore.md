@@ -1,3 +1,25 @@
+---
+title: Migrating to ASP.NET Core
+description: Serenity has templates for ASP.NET MVC and ASP.NET Core. Even though we kept updating both of them regularly so far, ASP.NET MVC is an obsolete technology which didn't get any new versions for quite a long time. 
+Thus, we recommend starting your new projects in .NET Core version. 
+This post lists the steps you should apply to migrate your existing Serenity ASP.NET MVC projects into Asp.Net/.NET Core.
+author: Volkan Ceylan
+---
+
+Microsoft has not released any new version of ASP.NET MVC for years and it is effectively obsolete and is replaced by ASP.NET Core which only runs on .NET Core.
+
+.NET Framework and .NET Core will be merged into .NET 5 soon, which will also unify Mono, Xamarin etc. platforms, which we think is a good idea.
+
+We are also planning to stop releasing new versions of ASP.NET MVC based Serenity templates and NuGet packages soon.
+
+Please perform following steps in order to migrate your *Existing Project* into ASP.NET Core so that you may keep updating your project.
+
+This document is still a work in progress. You might have to perform some other changes not covered here, depending on the size of your project and any custom code/libraries you have. 
+
+Please let us know in Serenity GitHub issues so we update this document accordingly.
+
+> We also offer migration services, in case you would like us to migrate your existing project handling any issues thay may arise. Please contact us at support@serenity.is to get a quote.
+
 ## Existing Project
 
 * We assume your project name is **MyProject**, we'll refer to it as **existing project** from now on.
