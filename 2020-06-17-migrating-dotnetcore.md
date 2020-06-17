@@ -49,32 +49,38 @@ Take a full backup of your solution (ZIP etc) just in case something goes wrong.
 * Open your **existing project** folder and do following renames:
     - **MyProject.Web.csproj** to **Old.MyProject.Web.csproj.bak**
     - **MyProject.Web.csproj.user** to **Old.MyProject.Web.csproj.user.bak**
-    - **Web.config** to **Old.Web.Debug.config**
-    - **Web.Debug.config** to **Old.Web.Debug.config**
+    - **Web.config** to **Old.Web.Debug.config.bak**
+    - **Web.Debug.config** to **Old.Web.Debug.config.bak**
     - **Global.asax** to **Old.Global.asax.bak**
     - **Global.asax.cs** to **Old.Global.asax.cs.bak**
     - **tsconfig.json** to **Old.tsconfig.json**    
     - **package.json** to **Old.package.json**
-    - **package-lock.json** to **Old.package-lock.json**
+    - **package-lock.json** to **Old.package-lock.json** (if exists)
     - **packages.config** to **Old.packages.config**
     - **Properties/AssemblyInfo.cs** to **Properties/Old.AssemblyInfo.cs.bak**
     - **Imports/CodeGenerationHelpers.ttinclude** to **Imports/Old.CodeGenerationHelpers.ttinclude.bak**
     - **Imports/MultipleOutputHelper.ttinclude** to **Imports/Old.MultipleOutputHelper.ttinclude.bak**
     - **Imports/Web.config** to **Imports/Old.Web.config.bak**
-    - **Imports/ClientTypes.tt** to **Imports/Old.ClientTypes.tt.bak**
-    - **Imports/ClientTypes.log** to **Imports/Old.ClientTypes.log.bak**
-    - **Imports/ServerTypings.tt** to **Imports/Old.ServerTypings.tt.bak**
-    - **Imports/ServerTypings.log** to **Imports/Old.ServerTypings.log.bak**
-    - **Imports/MVC.tt** to **Imports/Old.MVC.tt.bak**
+    - **Imports/ClientTypes/ClientTypes.tt** to **Imports/ClientTypes/Old.ClientTypes.tt.bak**
+    - **Imports/ClientTypes/ClientTypes.log** to **Imports/ClientTypes/Old.ClientTypes.log.bak**
+    - **Imports/ServerTypings/ServerTypings.tt** to **Imports/ServerTypings/Old.ServerTypings.tt.bak**
+    - **Imports/ServerTypings/ServerTypings.log** to **Imports/ServerTypings/Old.ServerTypings.log.bak**
+    - **Imports/MVC/MVC.tt** to **Imports/MVC/Old.MVC.tt.bak**
     - **Migrations/Web.config** to **Migrations/Old.Web.config.bak**
     - **Modules/Web.config** to **Modules/Old.Web.config.bak**
+    - **Modules/Administration/User/Authentication/LdapDirectoryService.cs** to **Modules/Administration/User/Authentication/Old.LdapDirectoryService.cs.bak**
+    - **Modules/Common/Helpers/RequireHttpsWithConfig.cs** to **Modules/Common/Helpers/Old.RequireHttpsWithConfig.cs.bak**
+    - **Modules/Northwind/Order/OrderDetailSampleTask.cs** to **Modules/Northwind/Order/Old.OrderDetailSampleTask.cs.bak**
     - **Views/Web.config** to **Views/Old.Web.config.bak**
     - **App_Start/****.cs** to **App_Start/Old.****.cs.bak** (for all files there)
-    - **App_Start/** to **Old.App_Start/** (for all files there)
+    - **App_Start/** to **Old.App_Start/**
     - **Scripts/** to **Old.Scripts/**
     - **Content/** to **Old.Content/**
     - **fonts/** to **Old.fonts/**
-    - **tols/** to **Old.tools/**
+    - **tools/** to **Old.tools/**
+
+  * Delete folder **Modules/AdvancedSamples/Grids/LongRunningAction/**
+  * Delete folder **Modules/AdvancedSamples/Grids/VSGalleryQA/**
 
 ## Copying Files from Template Project
 
@@ -86,13 +92,24 @@ Take a full backup of your solution (ZIP etc) just in case something goes wrong.
     - **web.config**
     - **tsconfig.json** 
     - **package.json**
-    - **package-lock.json**
+    - **package-lock.json** (if exists)
     - **.config** (might be hidden folder, check explorer settings)
     - **Initialization/** folder with all files and sub folders
     - **typings/** folder with all files and sub folders
     - **Views/_ViewImports.cshtml**
     - **Modules/_ViewImports.cshtml**
-    
+    - **Modules/Common/Helpers/XPagedList/** (only available in StartSharp)
+
+* Copy following files from **template project** only if they are also available in your project (they are just samples)
+    - **Modules/BasicSamples/BasicSamplesHelper.cs**
+    - **Modules/Northwind/Reports/CustomerGrossSalesReport.cs**
+    - **Modules/AdvancedSamples/Forms/AdvancedSamplesPage.Forms.cs** (only available in StartSharp)
+    - **Modules/AdvancedSamples/Forms/BootstrapForm/BootstrapFormEdit.cshtml** (only available in StartSharp)
+    - **Modules/AdvancedSamples/DataTables/DataTables.cs** (only available in StartSharp)
+    - **Modules/AdvancedSamples/DataTables/BasicInit.cshtml** (only available in StartSharp)
+    - **Modules/AdvancedSamples/DataTables/ServerSide.cshtml** (only available in StartSharp)
+    - **Modules/AdvancedSamples/-MyProject-Helper.cs** (only available in StartSharp)
+   
 ## Creating and Populating **wwwroot** folder
 
 * Create a **wwwroot** folder under **existing project** folder.
@@ -314,7 +331,7 @@ If you didn't make any modifications in AccountPage.cs you may directly copy it 
 * Replace\
   `(object)(FormsAuthentication.LoginUrl + "?returnUrl=" + Uri.EscapeDataString(returnUrl)));`\
   with\
-  `(object)("~/Account/Login?returnUrl=" + Uri.EscapeDataString(returnUrl)));`\
+  `(object)("~/Account/Login?returnUrl=" + Uri.EscapeDataString(returnUrl)));`
 
 * Replace\
   `var bytes = MachineKey.Unprotect(Convert.FromBase64String(token), "ImpersonateAs");`\
@@ -323,9 +340,9 @@ If you didn't make any modifications in AccountPage.cs you may directly copy it 
     `.Unprotect(Convert.FromBase64String(token));`
 
 * Replace\
-  `var currentClientId = Request.Headers["User-Agent"] + "|" + HttpContext.Connection.RemoteIpAddress;`\
+  `var Request.UserAgent + "|" + Request.UserHostAddress;`\
   with\
-  var currentClientId = Request.Headers["User-Agent"] + "|" + HttpContext.Connection.RemoteIpAddress;
+  `var currentClientId = Request.Headers["User-Agent"] + "|" + HttpContext.Connection.RemoteIpAddress;`
 
 * Replace\
   `Session.Abandon();`\
@@ -344,7 +361,7 @@ If you didn't make any modifications in AccountPage.ChangePassword.cs you may di
 
 * Replace\
   `var salt = Membership.GeneratePassword(5, 1);`\
-  `var hash = SiteMembershipProvider.ComputeSHA512(request.NewPassword + salt);`
+  `var hash = SiteMembershipProvider.ComputeSHA512(request.NewPassword + salt);`\
   with\
   `string salt = null;`\
   `var hash = UserRepository.GenerateHash(request.NewPassword, ref salt);`
@@ -364,6 +381,11 @@ If you didn't make any modifications in AccountPage.ForgotPassword.cs you may di
   with\
   `var emailBody = TemplateHelper.RenderViewToString(HttpContext.RequestServices,`
 
+  Replace\
+  `Request.Url.GetLeftPart(UriPartial.Authority) + VirtualPathUtility.ToAbsolute("~/");`\
+  with\
+  `Request.GetBaseUri().ToString();`
+
 ## Changes in Modules/Membership/Account/ResetPassword/AccountPage.ResetPassword.cs
 
 If you didn't make any modifications in AccountPage.ResetPassword.cs you may directly copy it from **template project**, otherwise do following changes in AccountPage.ResetPassword.cs:
@@ -377,7 +399,7 @@ If you didn't make any modifications in AccountPage.ResetPassword.cs you may dir
 
 * Replace\
   `using (var ms = new MemoryStream(MachineKey.Unprotect(`\
-  `Convert.FromBase64String(request.Token), "ResetPassword")))`
+  `Convert.FromBase64String(request.Token), "ResetPassword")))`\
   with\
   `using (var ms = new MemoryStream(bytes))`
 
@@ -410,6 +432,11 @@ If you didn't make any modifications in AccountPage.Signup.cs you may directly c
   `var bytes = HttpContext.RequestServices`\
   `.GetDataProtector("Activate").Unprotect(Convert.FromBase64String(t));`
 
+* Replace\
+  `Request.Url.GetLeftPart(UriPartial.Authority) + VirtualPathUtility.ToAbsolute("~/");`\
+  with\
+  `Request.GetBaseUri().ToString();`
+
 
 ## Changes in Modules/Administration/User/UserListRequest.cs
 
@@ -426,30 +453,22 @@ Copy this file from **template project** or modify it to add DataProtector prope
     }
 ```
 
+* Add\
+  `using Microsoft.AspNetCore.DataProtection;`
+
 ## Changes in Modules/Administration/User/UserEndpoint.cs
 
 
 Copy this file from **template project** or apply changes below:
 
-* Add
+* Add\
   `using Microsoft.AspNetCore.DataProtection;`
 
 * Replace\
-  `var clientId = Request.UserAgent.TrimToEmpty() + "|" + Request.UserHostAddress.TrimToEmpty();`\
+  `var clientId = Request.UserAgent + "|" + Request.UserHostAddress;`\
   with\
   `request.DataProtector = HttpContext.RequestServices.GetDataProtector("ImpersonateAs");`\
   `var clientId = Request.Headers["User-Agent"] + "|" + HttpContext.Connection.RemoteIpAddress;`
-
-* Replace\
-  `var emailBody = TemplateHelper.RenderTemplate(`\
-  with\
-  `var emailBody = TemplateHelper.RenderViewToString(HttpContext.RequestServices,`
-
-* Replace\
-  `var bytes = MachineKey.Unprotect(Convert.FromBase64String(t), "Activate");`\
-  with\
-  `var bytes = HttpContext.RequestServices`\
-  `.GetDataProtector("Activate").Unprotect(Convert.FromBase64String(t));`
 
 > Some of these changes might only be valid for StartSharp
 
@@ -458,7 +477,7 @@ Copy this file from **template project** or apply changes below:
 
 Copy this file from **template project** or apply changes below:
 
-* Add `using Serenity.Abstractions;`
+* Add\ `using Serenity.Abstractions;`
 
 * Replace\
   `isPublicDemo = ConfigurationManager.AppSettings["IsPublicDemo"] == "1"`\
@@ -504,41 +523,48 @@ Copy this file from **template project** or apply changes below:
 Copy this file from **template project** or apply changes below:
 
 * Add `using Serenity.Abstractions;`
+* Add `using Microsoft.AspNetCore.Mvc.ViewFeatures;`
 
 * Replace\
-  `isPublicDemo = ConfigurationManager.AppSettings["IsPublicDemo"] == "1"`\
+  `var viewData = download ? new ViewDataDictionary(data) : ViewData;`\
   with\
-  `isPublicDemo = Dependency.Resolve<IConfigurationManager>()`\
-  `.AppSetting("IsPublicDemo", typeof(string)) as string == "1";`
-
-  > You may also remove isPublicDemo and any code that uses it. It is only meaningful for Serenity.is Demo
-
+  `var viewData = download ? new ViewDataDictionary(this.ViewData) { Model = data } : ViewData;`
 
 * Replace\
-  `salt = salt ?? Membership.GeneratePassword(5, 1);`\
+  `var formsCookie = Request.Cookies[FormsAuthentication.FormsCookieName];`\
   with\
-  `salt = salt ?? Serenity.IO.TemporaryFileHelper.RandomFileCode().Substring(0, 5);`
-  
-* Replace\
-  `if (Request.ClientHash != null &&`\
-  with\
-  `if (Request.DataProtector != null && Request.ClientHash != null &&`
-
+  `var formsCookieName = ".AspNetAuth";`\
+  `var formsCookie = Request.Cookies[formsCookieName];`
 
 * Replace\
-  `entity.ImpersonationToken = GetImpersonationToken(`\
+  `converter.Cookies[formsCookieName] = formsCookie;`\
   with\
-  `entity.ImpersonationToken = GetImpersonationToken(Request.DataProtector,`
+  `converter.Cookies[FormsAuthentication.FormsCookieName] = formsCookie.Value;`
 
 * Replace\
-  `private static string GetImpersonationToken(byte[] clientHash, string username)`\
+  `var languageCookie = Request.Cookies["LanguagePreference"];`\
+  `if (languageCookie != null)`\
+  `   converter.Cookies["LanguagePreference"] = languageCookie.Value;`\
   with\
-  `private static string GetImpersonationToken(IDataProtector dataProtector, byte[] clientHash, string username)`
+  `var languageCookieName = "LanguagePreference";`\
+  `var languageCookie = Request.Cookies[languageCookieName];`\
+  `if (languageCookie != null)`\
+  `   converter.Cookies[languageCookieName] = languageCookie.Value;`\
 
 * Replace\
-  `var token = Convert.ToBase64String(MachineKey.Protect(bytes, "ImpersonateAs"));`\
+  `Response.AddHeader("Content-Disposition", cd.ToString());`\
   with\
-  `var token = Convert.ToBase64String(dataProtector.Protect(bytes));`
+  `Response.Headers["Content-Disposition"] = "inline;filename=" + System.Net.WebUtility.UrlEncode(fileDownloadName);`\
+
+* Replace\
+  `Request.Url.GetLeftPart(UriPartial.Authority) + VirtualPathUtility.ToAbsolute("~/");`\
+  with\
+  `Request.GetBaseUri().ToString();`
+
+* Replace\
+  `var html = TemplateHelper.RenderViewToString(designAttr.Design, viewData);`\
+  with\
+  `var html = TemplateHelper.RenderViewToString(HttpContext.RequestServices, designAttr.Design, viewData);`
 
 ## Changes in Modules/Common/File/FilePage.cs
 
@@ -576,15 +602,23 @@ Copy this file from **template project** or apply changes below:
   `using (var sw = new StreamWriter(System.IO.File.OpenWrite(`\
   `Path.ChangeExtension(UploadHelper.DbFilePath(temporaryFile), ".orig"))))`
 
+* Replace\
+  `if (!(Request.Headers["Accept"] ?? "").Contains("json"))`\
+  with\
+  `if (!((string)Request.Headers["Accept"] ?? "").Contains("json"))`
+
+## Changes in Modules/Common/EmailClient/EmailPage.cs
+
+Copy this file from **template project** if it exists.
+
+## Changes in Modules/Common/EmailClient/EmailEndpoint.cs
+
+Copy this file from **template project** if it exists.
+
 ## Changes in Administration/Translation/TranslationRepository.cs
 
 
 Copy this file from **template project** or apply changes below:
-
-* Replace\
-  `return new FilePathResult(filePath, mimeType);`\
-  with\
-  `if (!((string)Request.Headers["Accept"] ?? "").Contains("json"))`
 
 * Replace\
   `return HostingEnvironment.MapPath("~/App_Data/texts/") + "user.texts." + (languageID.TrimToNull() ?? "invariant") + ".json";`\
@@ -640,12 +674,17 @@ Copy this file from **template project** then manually apply your changes if any
 
 ## Changes in Views/Shared/_Layout.cshtml
 
-* Replace all occurences of 
+* Replace all occurences of\
 `@UICulture`\
 with\
 `@System.Globalization.CultureInfo.CurrentUICulture.Name`
 
-* Replace
+* Replace\
+  `VirtualPathUtility.ToAbsolute("~/upload/") + user.UserImage`\
+  with\
+  `System.Web.VirtualPathUtility.ToAbsolute("~/upload/") + user.UserImage`
+
+* Replace\
 `Func<string, IHtmlString> json = x => new HtmlString(Serenity.JSON.Stringify(x));`\
 with\
 `Func<string, HtmlString> json = x => new HtmlString(Serenity.JSON.Stringify(x));`
@@ -663,9 +702,9 @@ with\
 `var hideNav = (string)Context.Request.Query["hideNav"] == "1";`
 
 * Replace\
-`@{Html.RenderPartial(MVC.Views.Shared._LayoutHead);}`
+`@{Html.RenderPartial(MVC.Views.Shared._LayoutHead);}`\
 with\
-<partial name="@MVC.Views.Shared._LayoutHead" />
+`<partial name="@MVC.Views.Shared._LayoutHead" />`
 
 * Replace\
 `@{Html.RenderPartial(MVC.Views.Shared.LeftNavigation, new MyProject.Navigation.NavigationModel()); }`
@@ -687,9 +726,9 @@ with\
 `@if (DataMigrations.SkippedMigrations)`
 
 * Replace\
-`@{Html.RenderPartial(MVC.Views.Shared._LayoutHead);}`
-with\
-<partial name="@MVC.Views.Shared._LayoutHead" />
+  `@{Html.RenderPartial(MVC.Views.Shared._LayoutHead);}`\
+  with\
+  `<partial name="@MVC.Views.Shared._LayoutHead" />`
 
 ## Applying Your Manual Changes to Startup.cs from SiteInitialization.cs
 
