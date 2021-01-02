@@ -1,6 +1,6 @@
 ---
 title: Multi Column Layouts without CSS
-description: A philosopher said "change is the only constant in life". By this logic, Serenity should not be a constant, thus it changes a lot. If in doubt, just take a peek at our change log (https://github.com/volkanceylan/Serenity/blob/master/CHANGELOG.md). Even though we write about them in that file, so many cool new features goes unnoticed, or might not be fully understood from the short description in the log. One of the features that we'd like to talk about is the one we added to simplify multi column layouts, which is modelled after Bootstrap grid system / column classes.
+description: A philosopher said "change is the only constant in life". By this logic, Serenity should not be a constant, thus it changes a lot. If in doubt, just take a peek at our change log (https://github.com/serenity-is/Serenity/blob/master/CHANGELOG.md). Even though we write about them in that file, so many cool new features goes unnoticed, or might not be fully understood from the short description in the log. One of the features that we'd like to talk about is the one we added to simplify multi column layouts, which is modelled after Bootstrap grid system / column classes.
 author: Volkan Ceylan
 ---
 

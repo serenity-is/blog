@@ -425,7 +425,7 @@ This sample demonstrates how we could execute a task at server side, possibly in
 
 We're regularly adding new features to StartSharp. If you would like to see what we are cooking next in our software kitchen, you may take a look at our roadmap:
 
-https://github.com/volkanceylan/Serenity/projects/1
+https://github.com/serenity-is/Serenity/projects/1
 
 ## Conclusion
 
