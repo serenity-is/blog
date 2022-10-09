@@ -23,7 +23,7 @@ We initially have 4 source generators:
 - Server Types
 - Row Fields
 
-First three can be considered similar to our `dotnet sergen` tool's `mvc`, `clienttypes` and `servertypings` commands, but unlike `sergen` these source generators produce code while you are editing code in Visual Studio, unlike `sergen` which generates code on build.
+First three can be considered similar to our `dotnet sergen` tool's `mvc`, `clienttypes` and `servertypings` commands, but unlike `sergen` these source generators produce code while you are editing code in Visual Studio, not just on build.
 
 ## Enabling Source Generators
 
