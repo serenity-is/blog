@@ -279,7 +279,7 @@ It is possible to overwrite options passed to esbuild here but the defaults shou
 Make following changes to the `package.json`. Don't remove `vue`, `@types/sortablejs` etc. if you are using them anywhere.
 
 ```diff
--{
+{
    "dependencies": {
 +    "@serenity-is/corelib": "6.2.5",
 -    "@types/jquery": "^2.0.39",
