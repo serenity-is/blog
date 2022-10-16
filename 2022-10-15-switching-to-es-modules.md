@@ -24,7 +24,7 @@ namespace MyProject {
         //...
 ```
 
-Even TypeScript source itself is still using namespaces (https://github.com/microsoft/TypeScript/blob/main/src/compiler/core.ts). They are also trying to convert the code to ES modules.
+Even TypeScript source itself is still using namespaces (https://github.com/microsoft/TypeScript/blob/13c9b05384544262363f3fd8b942b36aeb84fc61/src/compiler/core.ts). They are also trying to convert the code to ES modules.
 
 Before switching to TypeScript we were using Script# (https://github.com/nikhilk/scriptsharp) followed by Saltaralle (https://github.com/Saltarelle) that are both C# to Javascript compilers. Script# stopped being updated 9 years ago, and Saltarelle is acquired by Bridge.NET, another C# to Javascript compiler in 2015 and become unmaintained. 
 
