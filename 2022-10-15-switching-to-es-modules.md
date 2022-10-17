@@ -107,18 +107,18 @@ If you are a Serene user who wants to try ES modules now, follow the steps outli
 
 > StartSharp users can also follow below ones as they has a few differences from the migration guide, especially in `tsbuild.js` part.
 
-### Update Serenity Packages to Latest (at least 6.2.5)
+### Update Serenity Packages to Latest (at least 6.2.6)
 
-First, update all Serenity packages and Sergen tool to at least 6.2.5 in your CSPROJ file (https://serenity.is/docs/migration/README)
+First, update all Serenity packages and Sergen tool to at least 6.2.6 in your CSPROJ file (https://serenity.is/docs/migration/README)
 
 ```xml
   <ItemGroup>
-    <PackageReference Include="Serenity.Assets" Version="6.2.5" />
-    <PackageReference Include="Serenity.Scripts" Version="6.2.5" />
-    <PackageReference Include="Serenity.Net.Web" Version="6.2.5" />
-    <PackageReference Include="Serenity.Extensions" Version="6.2.5" />
-    <PackageReference Include="Serenity.Demo.Northwind" Version="6.2.5" />
-    <PackageReference Include="Serenity.Demo.BasicSamples" Version="6.2.5" />
+    <PackageReference Include="Serenity.Assets" Version="6.2.6" />
+    <PackageReference Include="Serenity.Scripts" Version="6.2.6" />
+    <PackageReference Include="Serenity.Net.Web" Version="6.2.6" />
+    <PackageReference Include="Serenity.Extensions" Version="6.2.6" />
+    <PackageReference Include="Serenity.Demo.Northwind" Version="6.2.6" />
+    <PackageReference Include="Serenity.Demo.BasicSamples" Version="6.2.6" />
   </ItemGroup>
 ```
 
@@ -301,6 +301,7 @@ Make following changes to the `package.json`. Don't remove `vue`, `@types/sortab
    "scripts": {
 -    "less": "lessc ./wwwroot/Content/site/site.less ./wwwroot/content/site/site.css"
 +    "prepare": "node ./tsbuild.js --trigger"
++    "tsbuild:watch": "node ./tsbuild.js --watch"
    },
 +  "private": true,
 +  "type": "module"
@@ -605,7 +606,7 @@ namespace MyProject.Administration.Pages
 
 ## Running `tsbuild` in Watch Mode
 
-Open a console in project directory and run following:
+Open a console in project directory and try running following:
 
 ```ts
 node tsbuild --watch
@@ -615,9 +616,44 @@ This will build module scripts, and it will watch the TypeScript files under `Mo
 
 TypeScript compile on save does not work for ES modules as tsc can't do work of `esbuild` like bundling and code splitting, so we have to use `esbuild`'s watch feature.
 
-At the moment you need to run this command manually once during development and keep console open (you may use developer console in Visual Studio) so that watch works properly.
+## Enable Watch Mode on Application Start in Development
 
-We have plans to integrate this into ScriptBundleManager or similar class in the future, so that this won't be necessary during development / debugging.
+We'll be running npm script version `tsbuild:watch` defined in package.json in development mode, so that you won't have to manually run `node tsbuild --watch`.
+
+Edit `Startup.cs` file add this in `Configure` method:
+
+```cs
+        public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
+        {
+            // somewhere just after RowFieldsProvider.SetDefaultFrom... line
+            var startNodeScripts = Configuration["StartNodeScripts"];
+            if (!string.IsNullOrEmpty(startNodeScripts))
+            {
+                foreach (var script in startNodeScripts.Split(';', StringSplitOptions.RemoveEmptyEntries))
+                {
+                    app.StartNodeScript(script);
+                }
+            }
+```
+
+This will check a configuration setting `StartNodeScripts` which is a semicolon separated script names to run from package.json using `npm run` command.
+
+We recommend doing this only during development, so either wrap the above statement in `if (env.IsDevelopment()) { }` block, or put `StartNodeScripts` in `appsettings.Development.json` instead of `appsettings.json` file, so that it only applies to development.
+
+In `appsettings.Development.json` file (create one next to appsettings.json if you don't have already):
+
+```json
+{
+  ///...
+  "StartNodeScripts": "tsbuild:watch"
+}
+```
+
+This will run `tsbuild:watch` script defined in `package.json` file during application start, and will stop it when the application stops.
+
+The output for `esbuild` is redirected to the application log so you can see it in Visual Studio application debug console or Kestrel console app:
+
+![](img/2022-10-15/tsbuild-watch-output.png)
 
 ### Execute Project and Check If ES Modules Works Properly
 
@@ -630,6 +666,8 @@ Open developer console with F12, and type `MyProject.Administration.LanguageDial
 Conversion to `ES Modules` while trying to keep backward compatibility was pretty challenging for us, and it took several months of hard work to get it done. 
 
 There are still a few pending issues to resolve, like inplace editors not being able to locate the dialogs if not referenced in the containing class.
+
+> We applied a workaround in 6.2.6, which imports them in auto generated `Form.ts` file as long as the registerClass call has full class name. This should resolve about 90% of such cases.
 
 But, we expect this will open a set of possibilities for Serenity users. For example, this will create a better separation between modules (program modules). E.g. you won't have to load all the code for Administration module, while working in another module etc. Also same for frontend / backend sections of your site.
 
