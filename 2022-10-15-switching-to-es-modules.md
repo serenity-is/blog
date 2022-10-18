@@ -72,7 +72,7 @@ In the namespaces sample, the dialog class referenced the `Serenity` namespace f
 
 > In javascript it is possible to override almost everything, so EntityDialog could be a class in your project even if it is under Serenity namespace.
 
-In the ES modules sample, the import from `@serenity-is/corelib` module for `EntityDialog` is clearly specified. So build tools like ESBuild (which we'll be using) can know where a class originates from, and when and how they can use `three shaking`, `code splitting` etc. features if desired:
+In the ES modules sample, the import from `@serenity-is/corelib` module for `EntityDialog` is clearly specified. So build tools like ESBuild (which we'll be using) can know where a class originates from, and when and how they can use `tree shaking`, `code splitting` etc. features if desired:
 
 https://esbuild.github.io/api/#tree-shaking
 
