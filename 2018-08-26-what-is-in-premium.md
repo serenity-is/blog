@@ -6,7 +6,7 @@ author: Volkan Ceylan
 
 # Premium StartSharp Packages
 
-Our premium packages are available at [http://serenity.is](http://serenity.is). Currently, four levels are offered: _Basic_, _Personal_, _Professional_ and _Enterprise_.
+Our premium packages are available at [https://serenity.is](https://serenity.is). Currently, four levels are offered: _Basic_, _Personal_, _Professional_ and _Enterprise_.
 
 All support levels provide access to our *StartSharp* template, which includes additional samples, features, themes and modules (in addition to everything our free template *Serene*), that we'll talk about shortly. 
 
@@ -101,7 +101,7 @@ StartSharp contains 6 premium themes:
 * Glassy
 * Glassy Light
 
-You might have a look at our new themes in our demo at http://serenity.is/demo
+You might have a look at our new themes in our demo at https://demo.serenity.is
 
 Here are some screenshots
 

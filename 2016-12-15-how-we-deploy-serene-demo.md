@@ -1,6 +1,6 @@
 ---
 title: How Do We Deploy Serene Demo?
-description: You may already know that we don't like hiding good things from you, thus we release often. If we didn't make use of some sort of auto deployment, it would be a real pain to publish Serenity NuGet packages, update Serene in VSGallery, and keep the live demo at http://serenity.is/demo up to date. Let's see how our basic Powershell script, combined with a GitHub webhook does the last one.
+description: You may already know that we don't like hiding good things from you, thus we release often. If we didn't make use of some sort of auto deployment, it would be a real pain to publish Serenity NuGet packages, update Serene in VSGallery, and keep the live demo at https://demo.serenity.is up to date. Let's see how our basic Powershell script, combined with a GitHub webhook does the last one.
 author: Volkan Ceylan
 ---
 
@@ -43,7 +43,7 @@ SereneDemo is one of few sites under C:\Sites folder.
 
 **clone** directory is a Git repository that contains a working copy of https://github.com/volkanceylan/Serene.git. I did clone it using Git Extensions (my preferred Git UI), but you may use any UI you like. Just make sure you have Git installed in your server.
 
-Finally, **web** folder contains actual files for our application, Serene Demo that is published at http://serenity.is/demo/. This is the folder that is mapped in IIS to **demo** application.
+Finally, **web** folder contains actual files for our application, Serene Demo that is published at https://demo.serenity.is/. This is the folder that is mapped in IIS to **demo** application.
 
 You only need to have a **Web.config** file under this directory, before running the publish script.
 

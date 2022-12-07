@@ -37,7 +37,7 @@ Initially we have 6 new themes:
 * Glassy
 * Glassy Light
 
-You might have a look at our new themes in our demo at http://serenity.is/demo
+You might have a look at our new themes in our demo at https://demo.serenity.is
 
 > Please note that they are only available for StartSharp customers
 

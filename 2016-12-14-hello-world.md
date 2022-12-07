@@ -60,7 +60,7 @@ Clearly, first part of the file name, *2016-12-14* contains the post date in yyy
 
 Remaining part of the file name, up to *.md* extension, is the dasherized article URL. You are reading this post at URL:
 
-http://serenity.is/blog/2016/12/14/hello-world
+https://serenity.is/blog/2016/12/14/hello-world
 
 
 But of course, there is no such *blog* folder, nor the following folders or files in my application. That URL pattern is handled by a controller (*BlogController*) with a special route attribute. We'll come to that later.
