@@ -97,8 +97,6 @@ If you create a new project with `StartSharp` 6.2+, modules will be enabled by d
 
 If you use `stargen` to migrate your code, it will automatically migrate your project to use ES modules, and move your existing `namespace` style TypeScript files to `Namespaces` folder.
 
-The migration guide located at https://serenity.is/docs/migration/v6-0-0-to-v6-1-6 contains 
-
 StartSharp customers who want to manually enable ES modules in their project should follow steps in migration guide below (Serene users can't for now, as the document has links to StartSharp repository for some files like tsbuild.js).
 
 - https://serenity.is/docs/migration/v6-0-0-to-v6-1-6
