@@ -8,9 +8,9 @@ author: Volkan Ceylan
 
 Until recent versions, we only had Northwind, Basic Samples and Theme Samples that should be removed eventually with some help from How-To at:
 
-https://volkanceylan.gitbooks.io/serenity-guide/content/howto/removing_northwind.html
+https://serenity.is/docs/howto/removing_northwind
 
-It involves removing some folders and doing manual changes in a few shared files but still might take some time and is error prone. 
+It involves removing some folders and doing manual changes in a few shared files but still might take some time and is error-prone. 
 
 We also have to keep that guide up to date when something changes.
 
