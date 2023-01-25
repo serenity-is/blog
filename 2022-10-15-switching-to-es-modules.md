@@ -206,7 +206,7 @@ Modify following lines in `tsconfig.json` at project root (which will be for mod
 +    "outDir": "./wwwroot/esm",
 +    "paths": {
 +      "@/*": [ "Modules/*" ],
-+      "@serenity-is/*": [ "node_modules/@serenity-is/*/dist/index.d.ts" ]
++      "@serenity-is/*": [ "node_modules/@serenity-is/*/dist/index" ]
 +    },
 +    "rootDir": ".",
 -    "target": "ES5",
