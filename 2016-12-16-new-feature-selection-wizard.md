@@ -42,7 +42,7 @@ We tried to develop this feature as flexible and automatic as possible to not cr
 
 Our wizard extension in VSIX template makes use of some metadata in **.vstemplate** files.
 
-Here is wizard data in [Serene.vstemplate](https://github.com/volkanceylan/Serene/blob/master/Serene/Serene.vstemplate):
+Here is wizard data in [Serene.vstemplate](https://github.com/serenity-is/Serene/blob/master/Serene/Serene.vstemplate):
 
 ```xml
   <WizardData>
@@ -68,7 +68,7 @@ Here we configure the features and their dependencies. So when we'll want to add
 Because of historic reasons, our Serene template is a multi-project visual studio template (remember Serene.Script anyone?), so this data resides at 
 root template file (Serene.vstemplate).
 
-We have another .vstemplate file for Serene.Web.csproj [Serene.Web.vstemplate](https://github.com/volkanceylan/Serene/blob/master/Serene/Serene.Web/Serene.Web.vstemplate) 
+We have another .vstemplate file for Serene.Web.csproj [Serene.Web.vstemplate](https://github.com/serenity-is/Serene/blob/master/Serene/Serene.Web/Serene.Web.vstemplate) 
 that contains information about which feature contains which files:
 
 ```xml
@@ -153,7 +153,7 @@ This is special markup that is only meaningfull for our VSIX wizard extension. I
 
 If you are interested to know how it works, you may see source for our VSIX wizard at:
 
-https://github.com/volkanceylan/Serene/tree/master/Template/RootProjectWizard
+https://github.com/serenity-is/Serene/tree/master/Template/RootProjectWizard
 
 ## What Next?
 

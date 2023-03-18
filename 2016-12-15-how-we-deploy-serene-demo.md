@@ -41,7 +41,7 @@ SereneDemo is one of few sites under C:\Sites folder.
 
 **build** directory contains our deployment script that we'll talk about (*publish.ps1*) along with a copy of NuGet.exe.
 
-**clone** directory is a Git repository that contains a working copy of https://github.com/volkanceylan/Serene.git. I did clone it using Git Extensions (my preferred Git UI), but you may use any UI you like. Just make sure you have Git installed in your server.
+**clone** directory is a Git repository that contains a working copy of https://github.com/serenity-is/Serene.git. I did clone it using Git Extensions (my preferred Git UI), but you may use any UI you like. Just make sure you have Git installed in your server.
 
 Finally, **web** folder contains actual files for our application, Serene Demo that is published at https://demo.serenity.is/. This is the folder that is mapped in IIS to **demo** application.
 

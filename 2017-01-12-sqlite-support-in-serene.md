@@ -140,9 +140,9 @@ type, so we had to add one for Sqlite too.
 
 I found a script for *Northwind/Sqlite* by *Valon Hoti/Len Boyette*, and had to modify it a bit:
 
-https://github.com/volkanceylan/Serene/blob/master/Serene/Serene.Web/Migrations/NorthwindDB/NorthwindDBScript_Sqlite.sql
+https://github.com/serenity-is/Serene/blob/master/Serene/Serene.Web/Migrations/NorthwindDB/NorthwindDBScript_Sqlite.sql
 
-You need to set its build action to *Embedded Resource*, and do following change
+You need to set its build action to *Embedded Resource*, and do the following change
 in *NorthwindDB_20141123_155100_Initial.cs*:
 
 ```cs
