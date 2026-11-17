@@ -4,8 +4,6 @@ description: StartSharp Enterprise now includes Dashboards and its underlying Da
 author: Volkan Ceylan
 ---
 
-# Introducing Dashboards — Live, Secure Dashboards Built Right Inside Your StartSharp Application
-
 Every business application eventually gets the same request: *"Can we see this on a dashboard?"*
 
 Sales managers want this month's revenue next to last month's. Operations teams want to see the orders that are late to ship. Executives want a single screen that tells them whether things are going well. Until now, a StartSharp team had two ways to answer: write another hand-coded dashboard page, or export the data to a separate BI tool and maintain a second system next to the application.
